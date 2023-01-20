@@ -5,7 +5,7 @@ const weekDays = ['D', 'S', 'T', 'Q', 'Q', 'S', 'S']
 
 const summaryDays = generateAllDaysFromYear()
 
-const summaryMinimalSize = 1266 - summaryDays.length
+const summaryMinimalSize = 126 - summaryDays.length
 
 export function TableCalendar(){
   return(
@@ -24,7 +24,7 @@ export function TableCalendar(){
         <div className="grid grid-rows-7 grid-flow-col gap-3 overflow-y-auto">
            {summaryDays.map( (days, i) => {
               return(
-                <HabitsDays key={`${days.toString}`}/>
+                <HabitsDays key={`${days.toString()}`}/>
               )
             })}
 
