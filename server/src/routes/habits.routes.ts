@@ -5,4 +5,5 @@ const habitsControllers = new HabitsControllers
 
 export async function Habits( app: FastifyInstance) {
   app.post('/', habitsControllers.index)
+  app.patch('/:id/toggle', habitsControllers.toggle)
 }
