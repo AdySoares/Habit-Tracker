@@ -2,12 +2,16 @@ import { View, Text, ScrollView } from "react-native";
 import { Header } from "../components/Header";
 import { HabitDays, squareHabitsDaySize } from "../components/HabitDays";
 import { generateAllDaysFromYear } from "../utils/generateAllDatesFromYears";
+import { useNavigation } from "@react-navigation/native";
 
 const WeekDays = ['D', 'S', 'T', 'Q', 'Q', 'S', 'S']
 const generateSquareHabit = generateAllDaysFromYear()
 const minimalDays = 91 - generateSquareHabit.length
 
 export function Home(){
+
+  const { navigate } = useNavigation()
+
   return(
     <View className='flex-1 bg-background px-8 pt-16'>
       <Header/>
@@ -37,7 +41,8 @@ export function Home(){
             {
               generateSquareHabit.map( date => {
                 return(
-                  <HabitDays key={date.toISOString()}/>
+                  <HabitDays key={date.toISOString()}
+                  onPress={() => navigate('ViewHabits', {date: date.toISOString()})}/>
                 )
               })
             }

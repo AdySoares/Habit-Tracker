@@ -1,10 +1,13 @@
 import { View, Text, TouchableOpacity } from "react-native";
 import { Entypo } from '@expo/vector-icons';
-import color from 'tailwindcss/colors'
+import color from 'tailwindcss/colors';
+import { useNavigation } from '@react-navigation/native'
 
 import LogoImage from '../../assets/logo.svg';
 
+
 export function Header(){
+  const { navigate } = useNavigation()
   return(
     <View className="w-full flex-row items-center justify-between">
       <LogoImage/>
@@ -12,6 +15,7 @@ export function Header(){
       <TouchableOpacity 
         className="flex flex-row border border-violet-500 w-26 h-11 align-center justify-center px-4 py-3 rounded-lg"
         activeOpacity={0.5}
+        onPress={() => navigate('NewHabit')}
       > 
 
         <Entypo name="plus" color={color.violet[500]} size={20}/>
