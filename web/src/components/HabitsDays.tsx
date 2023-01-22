@@ -1,19 +1,37 @@
-import * as Popover from '@radix-ui/react-popover'
+import { useState } from 'react'
 import { ProgressiveBarCheckedHabits } from './ProgressiveBarCheckedHabits'
 import clsx from 'clsx'
+import * as Popover from '@radix-ui/react-popover'
+import { CheckBoxPopover } from './CheckBoxPopover'
 
 interface HabitsProps {
-  completed: number,
+  completed?: number,
   amount: number
 }
 
-export function HabitsDays({ completed, amount }: HabitsProps){
+
+export function HabitsDays({ completed, amount }: HabitsProps) {
+  
+  const habitDayList = ['Comer', 'Correr', 'Beber 2l de Água']
+  
+  const[ checkedHabitsDay, setHabitDayChecked ] = useState<string[]>([])
+  
+  function checkedHabit( habitDayChecked: string){
+    if(checkedHabitsDay.includes(habitDayChecked)){
+      setHabitDayChecked(previousState => previousState.filter(habits => habits !== habitDayChecked))
+    }else{
+      console.log(habitDayChecked)
+      setHabitDayChecked(previousState => [...previousState, habitDayChecked])
+    }
+    
+  }
 
 
-  const CompiledHabitPercent = Math.round(( completed / amount ) * 100)
 
+  const CompiledHabitPercent = Math.round((checkedHabitsDay.length / amount) * 100)
 
-  return(
+  
+  return (
     <Popover.Root>
       <Popover.Trigger className={clsx("h-10 w-10 border-2 rounded-lg", {
         'bg-zinc-900  border-zinc-800': CompiledHabitPercent <= 0,
@@ -22,7 +40,7 @@ export function HabitsDays({ completed, amount }: HabitsProps){
         'bg-violet-600 border-violet-500': CompiledHabitPercent >= 40 && CompiledHabitPercent <= 60,
         'bg-violet-500 border-violet-400': CompiledHabitPercent >= 60 && CompiledHabitPercent <= 80,
         'bg-violet-400 border-violet-300': CompiledHabitPercent === 100,
-      })}/>
+      })} />
 
       <Popover.Portal>
 
@@ -30,9 +48,23 @@ export function HabitsDays({ completed, amount }: HabitsProps){
           <span className='text-zinc-400'>Sexta-Feira</span>
           <span className='font-extrabold text-3xl'>20/01</span>
 
-          <ProgressiveBarCheckedHabits progress={CompiledHabitPercent}/>
+          <ProgressiveBarCheckedHabits progress={CompiledHabitPercent} />
 
-          <Popover.Arrow className='fill-zinc-900 w-6 h-3'/>
+          <div className='mt-6'>
+            {
+              habitDayList.map(habit => {
+                return (
+                  <CheckBoxPopover
+                    key={habit}
+                    title={habit}
+                    onCheckedChange={() => checkedHabit(habit)}
+                  />
+                )
+              })
+            }
+          </div>
+
+          <Popover.Arrow className='fill-zinc-900 w-6 h-3' />
         </Popover.Content>
 
       </Popover.Portal>

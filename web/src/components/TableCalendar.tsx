@@ -24,7 +24,7 @@ export function TableCalendar(){
         <div className="grid grid-rows-7 grid-flow-col gap-3 overflow-y-auto">
            {summaryDays.map( (days, i) => {
               return(
-                <HabitsDays key={`${days.toString()}`} completed={Math.round(Math.random() * 5)} amount={5}/>
+                <HabitsDays key={`${days.toString()}`} completed={Math.round(Math.random() * 5)} amount={3}/>
               )
             })}
 
