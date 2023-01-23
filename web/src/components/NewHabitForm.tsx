@@ -1,18 +1,14 @@
 import { FormEvent, useState } from 'react'
 import { BsCheckLg } from 'react-icons/bs'
+import { api } from '../lib/axios'
 import { CheckBoxForms } from './CheckBoxForms'
 
 const allPossibleWeekDays = ['Domingo', 'Segunda-Feira', 'Terça-Feira', 'Quarta-Feira', 'Quinta-Feira', 'Sexta-Feria', 'Sábado']
 
 export function NewHabitsForms() {
 
-  const [tile, setTile] = useState('')
+  const [title, setTitle] = useState('')
   const [weekDays, setWeekDays] = useState<number[]>([])
-
-  function submitForm(event: FormEvent) {
-    event.preventDefault()
-
-  }
 
   function addWeekDays(WeekDaysIndex: number) {
     if (weekDays.includes(WeekDaysIndex)) {
@@ -22,6 +18,27 @@ export function NewHabitsForms() {
     }
   }
 
+  async function submitForm(event: FormEvent) {
+    event.preventDefault()
+
+    if (!title || weekDays.length === 0){
+      return alert('Verifique se escreveu o seu habito e escolheu a recorrência')
+    }
+
+    await api.post('habits', {
+      title: title,
+      WeekDays: weekDays
+    })
+    .catch(function (error) {
+      console.log(error);
+    });
+
+    setTitle('')
+    setWeekDays([])
+
+    alert('Seu habito foi registrado com sucesso')
+
+  }
 
   return (
     <form onSubmit={submitForm} className='w-full mt-5 font-semibold text-base'>
@@ -33,7 +50,8 @@ export function NewHabitsForms() {
           type='text'
           placeholder="Ex: Exercícios, dormir bem, etc..."
           autoFocus
-          onChange={event => setTile(event.target.value)}
+          value={title}
+          onChange={event => setTitle(event.target.value)}
         />
 
       </div>
@@ -48,6 +66,7 @@ export function NewHabitsForms() {
               <CheckBoxForms
                 key={weekDay}
                 title={weekDay}
+                checked={weekDays.includes(i)}
                 onCheckedChange={() => addWeekDays(i)}
               />
             )
@@ -56,7 +75,7 @@ export function NewHabitsForms() {
 
       </div>
 
-      <button type='submit' className='bg-green-600 w-full h-14 rounded-lg flex gap-3 align-center items-center justify-center hover:brightness-90'>
+      <button type='submit' className='bg-green-600 w-full h-14 rounded-lg flex gap-3 align-center items-center justify-center hover:brightness-90 transition-colors'>
         <BsCheckLg
           size={15}
         />

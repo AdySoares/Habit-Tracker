@@ -1,6 +1,6 @@
+import * as Dialog from '@radix-ui/react-alert-dialog'
 import { FiPlus, FiX } from 'react-icons/fi'
 import LogoImage from '../assets/logo.svg'
-import * as Dialog from '@radix-ui/react-alert-dialog'
 import { NewHabitsForms } from './NewHabitForm'
 
 export function Header(){

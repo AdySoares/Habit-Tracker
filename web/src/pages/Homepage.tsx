@@ -1,6 +1,6 @@
-import '../styles/global.css'
 import { Header } from '../components/Header'
 import { TableCalendar } from '../components/TableCalendar'
+import '../styles/global.css'
 
 export function Homepage() {
 

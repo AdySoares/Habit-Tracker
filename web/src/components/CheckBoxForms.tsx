@@ -1,6 +1,6 @@
-import { BsCheckLg } from 'react-icons/bs';
 import * as Checkbox from "@radix-ui/react-checkbox";
 import { CheckboxProps } from '@radix-ui/react-checkbox';
+import { BsCheckLg } from 'react-icons/bs';
 
 interface Props extends CheckboxProps {
   title: string,
@@ -13,7 +13,7 @@ export function CheckBoxForms({ title, ...rest}: Props) {
       {...rest}
     >
       <div
-        className='w-9 h-9 flex items-center border-2 border-zinc-500 justify-center rounded-lg group-data-[state=checked]:bg-green-500 group-data-[state=checked]:border-green-500'
+        className='w-9 h-9 flex items-center border-2 border-zinc-500 justify-center rounded-lg group-data-[state=checked]:bg-green-500 group-data-[state=checked]:border-green-500 transition-colors'
       >
         <Checkbox.Indicator>
           <BsCheckLg size={20} />
