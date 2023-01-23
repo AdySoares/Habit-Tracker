@@ -19,8 +19,6 @@ export function HabitDays({ amount = 0 , completed = 0, date, ...rest }: HabitDa
   const percentageProgress = amount > 0 ? generateProgressPercentage(completed, amount) : 0
   const todayStyle = dayjs(date).isSame(new Date(), 'day')
 
-  console.log(todayStyle)
-
   return(
     <TouchableOpacity
     className={clsx('bg-zinc-900 border-2 rounded-lg m-1 border-zinc-800',{
