@@ -1,4 +1,4 @@
-import {FastifyInstance} from "fastify";
+import { FastifyInstance } from "fastify";
 import { DaysControllers } from "../controllers/days.controller";
 
 const daysControllers = new DaysControllers

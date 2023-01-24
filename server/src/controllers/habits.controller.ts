@@ -1,6 +1,6 @@
-import { prisma } from "../libs/prisma";
-import { date, z } from 'zod';
 import dayjs from "dayjs";
+import { z } from 'zod';
+import { prisma } from "../libs/prisma";
 
 export class HabitsControllers{
 

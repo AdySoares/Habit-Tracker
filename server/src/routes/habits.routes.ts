@@ -1,4 +1,4 @@
-import {FastifyInstance} from "fastify";
+import { FastifyInstance } from "fastify";
 import { HabitsControllers } from "../controllers/habits.controller";
 
 const habitsControllers = new HabitsControllers

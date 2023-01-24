@@ -1,6 +1,6 @@
-import { prisma } from "../libs/prisma";
-import { z } from 'zod';
 import dayjs from "dayjs";
+import { z } from 'zod';
+import { prisma } from "../libs/prisma";
 
 export class DaysControllers{
   async index(request : any) {
@@ -34,7 +34,7 @@ export class DaysControllers{
       }
     })
 
-    const completedHabits = day?.DayHabits.map( dayHabit => dayHabit.habitId)
+    const completedHabits = day?.DayHabits.map( dayHabit => dayHabit.habitId) ?? []
 
     return {
       possibleHabits,

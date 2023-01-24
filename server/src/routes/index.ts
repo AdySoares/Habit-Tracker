@@ -1,6 +1,6 @@
-import {FastifyInstance} from "fastify";
-import { Habits } from "./habits.routes";
+import { FastifyInstance } from "fastify";
 import { Days } from "./days.routes";
+import { Habits } from "./habits.routes";
 import { Summary } from "./summary.routes";
 
 
