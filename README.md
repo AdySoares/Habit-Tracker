@@ -21,7 +21,7 @@ Aplicação para gerenciar a criação de novos Hábitos pessoais
 ## Images
 <div  align="center" >
 
-![Imagem do da lista de hábitos](imgs/habitList.jpeg)
+![Imagem do da lista de hábitos](imgs/createHabit.jpeg)
 ![Imagem do da lista de hábitos](imgs/habitList.jpeg)
 
 </div>
