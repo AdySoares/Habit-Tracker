@@ -30,12 +30,13 @@ Aplicação para gerenciar a criação de novos Hábitos pessoais
 ## About
 <div>
 
-Essa aplicação foi desenvolvida durante a Next Level Week(NLW) de número 11 na trilha Ignite que é organizada e apresentada pela @Rocketseat onde o uso do Stack JavaScript (TypeScript, NodeJS, React, React Native, HTML e CSS) é mostrado de forma simples e forma inteligente de como um App é desenvolvido na prática abrindo a oportunidade dos participantes modificarem o projeto da forma que desejarem.
+Essa aplicação foi desenvolvida durante a Next Level Week (NLW) número 11, na trilha Ignite, organizada e apresentada pela @Rocketseat. A NLW demonstra de forma simples e inteligente como desenvolver um aplicativo na prática, usando o stack JavaScript (TypeScript, NodeJS, React, React Native, HTML e CSS). Os participantes têm a oportunidade de modificar o projeto de acordo com suas preferências.
 
-
-
-Essa a plicação se trada de gerenciador de hábitos ao qual possuí funções de gerenciar os hábitos completados na quele dia e a visualização do gerenciamento dos dias anteriores de forma bastante visual.
-
+    
+    
+A aplicação é um gerenciador de hábitos que permite gerenciar os hábitos completados no dia atual e visualizar o gerenciamento dos dias anteriores de forma bastante visual.
+    
+    
 </div>
 
 ## Technologies
